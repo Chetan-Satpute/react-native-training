@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1 id="test">Hello World!</h1>
+    <!--
+      This script runs and changes the inner text of h1 element to "Goodbye World"
+      This is because h1 element is loaded on the DOM before this script is run.
+    -->
+    <script>
+      const testElement = document.getElementById("test");
+      testElement.innerHTML = "Goodbye World";
+    </script>
+  </body>
+</html>
