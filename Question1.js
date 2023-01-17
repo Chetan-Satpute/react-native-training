@@ -19,11 +19,9 @@ const newObj = {
   ...obj,
   address: {
     ...obj.address,
-    details: [...obj.address.details],
+    details: ["5", ...obj.address.details.splice(1)],
   },
 };
-
-newObj.address.details[0] = "5";
 
 console.log(newObj);
 /*
