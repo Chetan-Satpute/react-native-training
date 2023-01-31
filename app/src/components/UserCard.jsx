@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import deleteUser from "../redux/actions/deleteUser";
-import saveUser from "../redux/actions/saveUser";
+import {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import deleteUser from '../redux/actions/deleteUser';
+import saveUser from '../redux/actions/saveUser';
 
-function UserCard(props) {
+const UserCard = props => {
   const [name, setName] = useState(props.name);
   const [email, setEmail] = useState(props.email);
 
@@ -11,7 +11,7 @@ function UserCard(props) {
   const dispatch = useDispatch();
 
   const handleSave = () => {
-    dispatch(saveUser({ id: props.id, first_name: name, email: email }));
+    dispatch(saveUser({id: props.id, first_name: name, email: email}));
   };
 
   const handleDelete = () => {
@@ -25,12 +25,12 @@ function UserCard(props) {
           <input
             className="font-bold"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={e => setName(e.target.value)}
           />
           <input
             className="font-bold"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
           />
         </div>
 
@@ -38,21 +38,18 @@ function UserCard(props) {
           <div>
             <button
               className="bg-red-500 text-white rounded-md p-1 hover:bg-red-700"
-              onClick={handleDelete}
-            >
+              onClick={handleDelete}>
               Delete
             </button>
             <button
               className="bg-blue-500 text-white rounded-md p-1 hover:bg-blue-700"
-              onClick={handleSave}
-            >
+              onClick={handleSave}>
               Save
             </button>
           </div>
           <button
             className="bg-red-500 text-white rounded-md p-1 hover:bg-red-700"
-            onClick={() => setEdit(false)}
-          >
+            onClick={() => setEdit(false)}>
             Close
           </button>
         </div>
@@ -68,13 +65,12 @@ function UserCard(props) {
       <div className="p-1">
         <button
           className="bg-red-500 text-white rounded-md p-1 hover:bg-red-700"
-          onClick={() => setEdit(!edit)}
-        >
+          onClick={() => setEdit(!edit)}>
           Edit
         </button>
       </div>
     </div>
   );
-}
+};
 
 export default UserCard;

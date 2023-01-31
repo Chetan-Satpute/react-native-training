@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import getUsers from "./api/getUsers";
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import getUsers from './api/getUsers';
 
-import UserCard from "./components/UserCard";
-import loadUsers from "./redux/actions/loadUsers";
+import UserCard from './components/UserCard';
+import loadUsers from './redux/actions/loadUsers';
 
-function App() {
-  const users = useSelector((state) => state.userReducer.users);
+const App = () => {
+  const users = useSelector(state => state.userReducer.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function App() {
     });
   }, []);
 
-  const userList = users.map((user) => (
+  const userList = users.map(user => (
     <UserCard
       key={user.id}
       id={user.id}
@@ -25,6 +25,6 @@ function App() {
   ));
 
   return userList;
-}
+};
 
 export default App;

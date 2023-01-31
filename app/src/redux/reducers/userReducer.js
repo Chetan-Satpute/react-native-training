@@ -1,24 +1,21 @@
-import { DELETE_USER } from "../actions/deleteUser";
-import { LOAD_USERS } from "../actions/loadUsers";
-import { SAVE_USER } from "../actions/saveUser";
+import {DELETE_USER, LOAD_USERS, SAVE_USER} from '../actions/userActions';
 
 const initialState = {
   users: [],
 };
 
-function userReducer(state = initialState, action) {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_USERS:
-      state = {
+      return {
         ...state,
         users: [...action.payload],
       };
-      break;
 
     case SAVE_USER:
-      state = {
+      return {
         ...state,
-        users: state.users.map((user) => {
+        users: state.users.map(user => {
           if (user.id === action.payload.id) {
             return action.payload;
           }
@@ -26,22 +23,18 @@ function userReducer(state = initialState, action) {
           return user;
         }),
       };
-      break;
 
     case DELETE_USER:
-      state = {
+      return {
         ...state,
-        users: state.users.filter((user) => user.id !== action.payload),
+        users: state.users.filter(user => user.id !== action.payload),
       };
-      console.log(state, action.payload);
-      break;
 
     default:
       break;
   }
 
-
   return state;
-}
+};
 
 export default userReducer;
