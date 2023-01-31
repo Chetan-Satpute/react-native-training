@@ -1,5 +1,5 @@
-import { Transition, TransitionStatus } from "react-transition-group";
-import { useRef, useState } from "react";
+import {useRef, useState} from 'react';
+import {Transition, TransitionStatus} from 'react-transition-group';
 
 const duration = 300;
 
@@ -11,10 +11,10 @@ const defaultStyle = {
 const transitionStyles: {
   [id in TransitionStatus]: any;
 } = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
+  entering: {opacity: 1},
+  entered: {opacity: 1},
+  exiting: {opacity: 0},
+  exited: {opacity: 0},
   unmounted: {},
 };
 
@@ -25,14 +25,13 @@ function Animation() {
   return (
     <div>
       <Transition nodeRef={nodeRef} in={open} timeout={duration}>
-        {(state) => (
+        {state => (
           <div
             ref={nodeRef}
             style={{
               ...defaultStyle,
               ...transitionStyles[state],
-            }}
-          >
+            }}>
             I'm a fade Transition!
           </div>
         )}

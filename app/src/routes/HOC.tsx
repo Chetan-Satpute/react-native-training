@@ -1,16 +1,17 @@
-import { FC, useEffect, useState } from "react";
+import {FC, useEffect, useState} from 'react';
+
+import './styles.css';
 
 function HOC() {
   const [count, setCount] = useState(0);
 
   const incrementCounter = () => {
-    setCount((count) => count + 1);
+    setCount(count => count + 1);
   };
 
   return (
     <div>
       <h1>Counter Value: {count}</h1>
-
       {withCallback(DivComponent, incrementCounter)}
       {withCallback(ParagraphComponent, incrementCounter)}
     </div>
@@ -31,7 +32,7 @@ function withCallback(Component: FC, callback: () => void) {
 
 function DivComponent() {
   return (
-    <div style={{ height: 100, width: 100 }}>
+    <div className="box">
       This is div element with increment counter callback.
     </div>
   );
@@ -39,7 +40,7 @@ function DivComponent() {
 
 function ParagraphComponent() {
   return (
-    <p style={{ height: 100, width: 100 }}>
+    <p className="box">
       This is paragraph element with increment counter callback.
     </p>
   );
